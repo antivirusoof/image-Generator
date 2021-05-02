@@ -4,6 +4,7 @@ import com.zeta.random.image.Model.ImageDetail;
 import com.zeta.random.image.repository.ImageRepository;
 import com.zeta.random.image.restclient.LoremRestClient;
 import com.zeta.random.image.serivce.ImageService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,7 @@ import java.util.Date;
 import java.util.List;
 
 @Service
+@Slf4j
 public class ImageServiceImp implements ImageService {
     public static final String URL = "https://picsum.photos/id/{id}/200/300";
     public static final String KEYWORD = "Picsum-Id";
@@ -23,8 +25,11 @@ public class ImageServiceImp implements ImageService {
 
     @Autowired
     ImageRepository imageRepository;
+    @Autowired
+    test t;
 
     public byte[] getRamdonImage() {
+        log.info("testing");
         ResponseEntity<byte[]> responseEntity = loremRestClient.getImage();
         return responseEntity.getBody();
 

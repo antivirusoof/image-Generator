@@ -2,7 +2,7 @@
 <Configuration packages="biz.paluch.logging.gelf.log4j2"
                monitorInterval="60">
     <Properties>
-        <Property name="log-path">/var/log/fpts</Property>
+        <Property name="log-path">/var/log</Property>
         <Property name="archive">${log-path}/archive</Property>
         <Property name="PID">????</Property>
         <Property name="serviceName">incentive-service</Property>
@@ -22,7 +22,7 @@
         </Console>
     </Appenders>
     <Loggers>
-        <AsyncLogger name="main" level="debug" additivity="false">
+        <AsyncLogger name="random.image.generator" level="debug" additivity="false">
             <AppenderRef ref="Console-Appender" level="info"/>
             <AppenderRef ref="Graylog"/>
         </AsyncLogger>
